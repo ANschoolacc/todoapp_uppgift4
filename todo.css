@@ -1,0 +1,119 @@
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(238, 128, 11),
+    rgb(0, 225, 255)
+  );
+}
+
+body div.wrapper {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  background-color: whitesmoke;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+body div.wrapper header {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+header h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
+  margin: 4px;
+}
+
+header div.inputField {
+  display: flex;
+  justify-content: stretch;
+  height: 60px;
+}
+
+header div.inputField input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  flex: 1;
+  margin: 4px;
+  outline: none;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.188);
+}
+
+header div.inputField button {
+  font-size: 24px;
+  width: 60px;
+  margin: 4px;
+}
+
+body div.wrapper main {
+  display: flex;
+  flex-direction: column;
+}
+
+main article {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: row;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.188);
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-bottom: 1px;
+  cursor: pointer;
+}
+
+main article li {
+  flex: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 6px;
+  list-style-type: none;
+  overflow-wrap: anywhere;
+}
+
+main article li:hover {
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+main article img:hover {
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+main article img:active {
+  opacity: 1;
+  transition: 0.1s;
+}
+
+.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+#todoCount {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  margin: 4px;
+}
+
+#alert {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  align-self: center;
+  font-size: 20px;
+}
