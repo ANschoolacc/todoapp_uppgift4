@@ -32,6 +32,10 @@ addTodoBtn.addEventListener("click", () => {
   const trash = document.createElement("img");
   trash.src = "trash.svg";
 
+  const checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+
+  container.appendChild(checkBox);
   container.appendChild(todoItem);
   container.appendChild(trash);
 
@@ -41,9 +45,25 @@ addTodoBtn.addEventListener("click", () => {
     if (todoItem.getAttribute("class") == "checked") {
       todoItem.setAttribute("class", "");
       completed--;
+      checkBox.checked = false;
     } else {
       todoItem.setAttribute("class", "checked");
       completed++;
+      checkBox.checked = true;
+    }
+    todoCount.innerText = `Finished Todos: ${completed}`;
+  });
+
+  //Click event for checkbox. Same as click event for li element
+  checkBox.addEventListener("click", () => {
+    if (todoItem.getAttribute("class") == "checked") {
+      todoItem.setAttribute("class", "");
+      completed--;
+      checkBox.checked = false;
+    } else {
+      todoItem.setAttribute("class", "checked");
+      completed++;
+      checkBox.checked = true;
     }
     todoCount.innerText = `Finished Todos: ${completed}`;
   });
