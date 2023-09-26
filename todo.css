@@ -28,7 +28,6 @@ body div.wrapper header {
 
 header h1 {
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
 
   margin: 4px;
 }
@@ -74,11 +73,15 @@ main article {
   cursor: pointer;
 }
 
+main article input {
+  margin-left: 10px;
+}
+
 main article li {
   flex: 1;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  margin-left: 6px;
+  margin-left: 2px;
   list-style-type: none;
   overflow-wrap: anywhere;
 }
