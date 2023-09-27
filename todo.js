@@ -28,17 +28,14 @@ addTodoBtn.addEventListener("click", () => {
   const container = document.createElement("article");
 
   const todoItem = document.createElement("li");
-  //Putting text of todo in variable
   todoItem.innerText = text;
 
   const trash = document.createElement("img");
-  //Adding source to image i want to use
   trash.src = "trash.svg";
 
   const checkBox = document.createElement("input");
-  //Setting attribute to input element so it changes to checkbox type
   checkBox.setAttribute("type", "checkbox");
-
+  //Variable to get text from li to use in functions
   let todoText = todoItem.innerText;
   //Adding childelements to article element
   container.appendChild(checkBox);
@@ -121,7 +118,7 @@ addTodoBtn.addEventListener("click", () => {
   //Removes text user wrote in inputbar after pressing + button
   inputBar.value = "";
 });
-//Finds correct index in todoArr then changes objects status to true/false
+//Finds correct index in todoArr with todoText then changes objects status to true/false
 function changeStatus(todoText, checked) {
   let checkIndex = todoArr
     .map((todoObject) => todoObject.name)
@@ -130,7 +127,7 @@ function changeStatus(todoText, checked) {
   todoArr[checkIndex].status = checked;
 }
 
-//Finds correct index with todoText then removes that object from array
+//Finds correct index in todoArr with todoText then removes that object from array
 function removeListObject(todoText) {
   let checkIndex = todoArr
     .map((todoObject) => todoObject.name)
