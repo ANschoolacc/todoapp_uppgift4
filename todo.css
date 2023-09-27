@@ -123,7 +123,7 @@ main article img:active {
   color: red;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
-  align-self: center;
+  text-align: center;
   font-size: 20px;
   cursor: default;
 }
