@@ -1,19 +1,19 @@
 //Array to put todo items
-const todoList = [];
-//Variables
+const todoArr = [];
+//Declaring variables
 const inputBar = document.querySelector("#inputBar");
 
 const todoCount = document.querySelector("#todoCount");
 
 let completed = 0;
 
-const list = document.querySelector("main");
+const todoList = document.querySelector("main");
 
 const addTodoBtn = document.querySelector("#addTodoBtn");
 
 const alertText = document.querySelector("#alert");
 
-//click event to make + button add input into list.
+//The main code block, click event to make + button add input into list
 addTodoBtn.addEventListener("click", () => {
   text = inputBar.value;
 
@@ -23,7 +23,7 @@ addTodoBtn.addEventListener("click", () => {
   } else {
     alertText.innerText = "";
   }
-
+  //Declaration of variables inside scope
   const container = document.createElement("article");
 
   const todoItem = document.createElement("li");
@@ -35,21 +35,47 @@ addTodoBtn.addEventListener("click", () => {
   const checkBox = document.createElement("input");
   checkBox.setAttribute("type", "checkbox");
 
+  let todoText = todoItem.innerText;
+
   container.appendChild(checkBox);
   container.appendChild(todoItem);
   container.appendChild(trash);
 
-  list.appendChild(container);
+  todoList.appendChild(container);
 
+  const todoObject = {
+    name: text,
+    status: false,
+  };
+
+  todoArr.push(todoObject);
+  console.log(todoArr);
+
+  //Click event for li element. Checks what class the element has
   todoItem.addEventListener("click", () => {
     if (todoItem.getAttribute("class") == "checked") {
       todoItem.setAttribute("class", "");
+      //Retracts
       completed--;
       checkBox.checked = false;
+
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr[checkIndex].status = false;
+
+      console.log(todoArr);
     } else {
       todoItem.setAttribute("class", "checked");
       completed++;
       checkBox.checked = true;
+
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr[checkIndex].status = true;
+
+      console.log(todoArr);
     }
     todoCount.innerText = `Finished Todos: ${completed}`;
   });
@@ -60,19 +86,45 @@ addTodoBtn.addEventListener("click", () => {
       todoItem.setAttribute("class", "");
       completed--;
       checkBox.checked = false;
+
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr[checkIndex].status = false;
+      console.log(todoArr);
     } else {
       todoItem.setAttribute("class", "checked");
       completed++;
       checkBox.checked = true;
+
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr[checkIndex].status = true;
     }
+
     todoCount.innerText = `Finished Todos: ${completed}`;
   });
 
   trash.addEventListener("click", () => {
     if (completed > 0) {
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr.splice(checkIndex, 1);
+      console.log(todoArr);
+
       completed--;
+
       container.remove();
     } else {
+      let checkIndex = todoArr
+        .map((todoObject) => todoObject.name)
+        .indexOf(todoText);
+      todoArr.splice(checkIndex, 1);
+
+      console.log(todoArr);
+
       container.remove();
     }
 
@@ -81,11 +133,3 @@ addTodoBtn.addEventListener("click", () => {
 
   inputBar.value = "";
 });
-
-//function to make li with text from variables in object created and appended to hmtl
-
-//click event to change class of art and boolean of object to done/true. Add/remove 1 from counter depending on boolean value.
-
-function checkTodo() {}
-
-//click event to remove li item and object in array through trashcan icon
