@@ -130,7 +130,7 @@ function changeStatus(todoText, checked) {
   todoArr[checkIndex].status = checked;
 }
 
-//Finds correct index then removes that object from array
+//Finds correct index with todoText then removes that object from array
 function removeListObject(todoText) {
   let checkIndex = todoArr
     .map((todoObject) => todoObject.name)
